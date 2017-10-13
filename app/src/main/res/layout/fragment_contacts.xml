@@ -4,6 +4,35 @@
     android:layout_height="match_parent"
     android:background="@color/wheat"
     android:clickable="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="32dp">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/contact_name_author"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_contacts_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableLeft="@drawable/icon_call"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="@string/contact_number_phone"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_contacts_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableLeft="@drawable/icon_message"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:text="@string/contact_mail"
+        android:textSize="12sp" />
 </LinearLayout>

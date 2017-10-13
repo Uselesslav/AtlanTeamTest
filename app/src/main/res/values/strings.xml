@@ -5,4 +5,14 @@
     <!--Названия вкладок-->
     <string name="name_tab_list_card">Список карточек</string>
     <string name="name_tab_contacts">Контакты</string>
+
+    <!--Строки фрагмента контактов-->
+    <string name="contact_number_phone">8(989)700–93–37</string>
+    <string name="contact_mail">wdbondarenko@gmail.com</string>
+    <string name="contact_name_author">Бондаренко Вячеслав Дмитриевич</string>
+    <string name="contact_theme_message">Приглашение на собеседованией</string>
+    <string name="contact_text_message">Доброго времени суток, Вячеслав</string>
+    <string name="contact_text_input_message">Введите сообщение…</string>
+    <string name="contact_scheme">mailto</string>
+    <string name="contact_uri_string">tel:</string>
 </resources>
