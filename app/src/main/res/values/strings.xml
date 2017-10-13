@@ -1,3 +1,8 @@
 <resources>
+    <!--Название приложения-->
     <string name="app_name">AtlanTeam Test</string>
+
+    <!--Названия вкладок-->
+    <string name="name_tab_list_card">Список карточек</string>
+    <string name="name_tab_contacts">Контакты</string>
 </resources>
