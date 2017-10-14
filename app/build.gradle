@@ -35,4 +35,10 @@ dependencies {
     // Библиотеки для дизайна UI
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // Библиотека для работы с JSON
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    // Библиотека Retrofit2 - RESTful API (необходима библиотека работы с GSON)
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
 }
