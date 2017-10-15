@@ -29,7 +29,7 @@ public class AddressModel {
      * Почтовый индекс
      */
     @SerializedName("zipcode")
-    private double zipcode;
+    private String zipcode;
 
     /**
      * Геолокация
@@ -41,7 +41,7 @@ public class AddressModel {
         this.street = street;
         this.suite = suite;
         this.city = city;
-        this.zipcode = Double.parseDouble(zipcode);
+        this.zipcode = zipcode;
         this.geo = geo;
     }
 
@@ -69,11 +69,11 @@ public class AddressModel {
         this.city = city;
     }
 
-    public double getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(double zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
