@@ -81,22 +81,22 @@ public class PostsFragment extends Fragment {
             }
         });
 
-        // Кнопка "ПОКАЗАТЬ" и поле ввода текста
-        Button buttonDisplay = rootView.findViewById(R.id.button_display);
+        // Кнопка "ПОДТВЕРДИТЬ" и поле ввода текста
+        Button buttonApply = rootView.findViewById(R.id.button_apply);
         final EditText editTextId = rootView.findViewById(R.id.et_id);
 
         // Информационное текстовое поле
         final TextView textViewInfo = rootView.findViewById(R.id.tv_info);
 
         // Обработчик нажатия на кнопку "показать"
-        buttonDisplay.setOnClickListener(new Button.OnClickListener() {
+        buttonApply.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Получение id из поля ввода
                 final int id = Integer.parseInt(editTextId.getText().toString()) - 1;
 
                 // Проверка введенного значения
-                if ((id > -1) && (id < 100)) {
+                if ((id > -1) && (id < arrayListPost.size() - 1)) {
                     // Заполнение текстовых полей выбранным постом
                     textViewTitle.setText(arrayListPost.get(id).getTitle());
                     textViewBody.setText(arrayListPost.get(id).getBody());

@@ -28,6 +28,6 @@
     <string name="post">Пост:</string>
     <string name="comment">Комментарий:</string>
     <string name="input_id">введите id</string>
-    <string name="display">показать</string>
+    <string name="apply">подтвердить</string>
     <string name="info_post">id должно лежать в диапазоне от 0 до 100</string>
 </resources>
