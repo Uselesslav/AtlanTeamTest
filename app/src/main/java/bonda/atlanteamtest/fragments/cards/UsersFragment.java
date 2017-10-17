@@ -82,11 +82,13 @@ public class UsersFragment extends Fragment {
 
                     // Параметры списка
                     ViewGroup.LayoutParams layoutParams = listViewUsers.getLayoutParams();
+                    // Отчистка старого значения
                     layoutParams.height = 0;
 
                     // Добавление дефолтных пользователей
                     for (int i = 0; i < 5; i++) {
                         arrayListUsersFromView.add(arrayListUsers.get(i));
+                        // Добавление высоты списка на высоту элемента списка
                         layoutParams.height = (int) (listViewUsers.getLayoutParams().height + 256 * scale);
                     }
 
@@ -138,6 +140,7 @@ public class UsersFragment extends Fragment {
 
                     // Обновление араметров списка
                     ViewGroup.LayoutParams layoutParams = listViewUsers.getLayoutParams();
+                    // Установка высоты списка равной высоте элемента
                     layoutParams.height = (int) (256 * scale);
                     listViewUsers.setLayoutParams(layoutParams);
 

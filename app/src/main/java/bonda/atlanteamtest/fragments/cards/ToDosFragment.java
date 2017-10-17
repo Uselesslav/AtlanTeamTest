@@ -68,7 +68,7 @@ public class ToDosFragment extends Fragment {
                     arrayListToDo.addAll(response.body());
 
                     // Получение случайного идентификатора
-                    int id = new Random().nextInt(arrayListToDo.size()) + 1;
+                    int id = new Random().nextInt(arrayListToDo.size() - 1) + 1;
 
                     // Заполнение текстовых полей
                     textViewTitle.setText(arrayListToDo.get(id).getTitle());

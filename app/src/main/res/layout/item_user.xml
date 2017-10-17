@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="256dp"
+    android:gravity="center_vertical"
     android:orientation="vertical">
 
     <TextView
@@ -13,7 +14,8 @@
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +26,8 @@
     <TextView
         android:id="@+id/tv_login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +38,8 @@
     <TextView
         android:id="@+id/tv_email"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,7 +57,8 @@
     <TextView
         android:id="@+id/tv_city"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,7 +70,8 @@
     <TextView
         android:id="@+id/tv_street"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,5 +83,6 @@
     <TextView
         android:id="@+id/tv_suite"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp" />
 </LinearLayout>
