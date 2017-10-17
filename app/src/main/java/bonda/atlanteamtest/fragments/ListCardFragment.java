@@ -9,6 +9,11 @@ import android.view.ViewGroup;
 
 import bonda.atlanteamtest.InterfaceAPI;
 import bonda.atlanteamtest.R;
+import bonda.atlanteamtest.fragments.cards.CommentsFragment;
+import bonda.atlanteamtest.fragments.cards.PhotosFragment;
+import bonda.atlanteamtest.fragments.cards.PostsFragment;
+import bonda.atlanteamtest.fragments.cards.ToDosFragment;
+import bonda.atlanteamtest.fragments.cards.UsersFragment;
 import bonda.atlanteamtest.models.AlbumModel;
 import bonda.atlanteamtest.models.CommentModel;
 import bonda.atlanteamtest.models.PhotoModel;
@@ -40,6 +45,14 @@ public class ListCardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Создаваемый UI
         View rootView = inflater.inflate(R.layout.fragment_list_card, container, false);
+
+        // Заполнение контейнеров карточек соответствующими фрагментами
+        getChildFragmentManager().beginTransaction().add(R.id.fl_comments, CommentsFragment.newInstance()).commit();
+        getChildFragmentManager().beginTransaction().add(R.id.fl_photos, PhotosFragment.newInstance()).commit();
+        getChildFragmentManager().beginTransaction().add(R.id.fl_users, UsersFragment.newInstance()).commit();
+        getChildFragmentManager().beginTransaction().add(R.id.fl_posts, PostsFragment.newInstance()).commit();
+        getChildFragmentManager().beginTransaction().add(R.id.fl_todos, ToDosFragment.newInstance()).commit();
+
 
         // Инициализация работы с сервером
         Retrofit retrofit = new Retrofit.Builder().baseUrl(InterfaceAPI.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
