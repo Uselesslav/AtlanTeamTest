@@ -15,9 +15,7 @@ import bonda.atlanteamtest.fragments.cards.PostsFragment;
 import bonda.atlanteamtest.fragments.cards.ToDosFragment;
 import bonda.atlanteamtest.fragments.cards.UsersFragment;
 import bonda.atlanteamtest.models.AlbumModel;
-import bonda.atlanteamtest.models.CommentModel;
 import bonda.atlanteamtest.models.PhotoModel;
-import bonda.atlanteamtest.models.PostModel;
 import bonda.atlanteamtest.models.ToDoModel;
 import bonda.atlanteamtest.models.UserModel;
 import retrofit2.Call;
@@ -56,35 +54,6 @@ public class ListCardFragment extends Fragment {
 
         // Инициализация работы с сервером
         Retrofit retrofit = new Retrofit.Builder().baseUrl(InterfaceAPI.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-
-
-        // Формирование тела запроса с параметрами для получения комментария
-        Call<CommentModel> callComment = retrofit.create(InterfaceAPI.class).getComment();
-
-        // Выполннение асинхронного запроса к API для получения поста
-        callComment.enqueue(new Callback<CommentModel>() {
-            @Override
-            public void onResponse(Call<CommentModel> userCall, Response<CommentModel> response) {
-                // Проверка успешности запроса
-                if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
-
-                    // Заполнение сущности из тела запроса
-                    CommentModel callComment = response.body();
-
-                } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<CommentModel> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
-            }
-        });
-
 
         // Формирование тела запроса с параметрами для получения фото
         Call<PhotoModel> callPhoto = retrofit.create(InterfaceAPI.class).getPhoto();

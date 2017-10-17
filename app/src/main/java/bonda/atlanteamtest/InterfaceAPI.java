@@ -28,7 +28,6 @@ public interface InterfaceAPI {
 
     /**
      * Получение поста
-     * TODO: Вставлять вместо 1 - n
      *
      * @return в случае удачного получения код 200 и пост
      */
@@ -37,12 +36,11 @@ public interface InterfaceAPI {
 
     /**
      * Получение комментария
-     * TODO: Вставлять вместо 1 - n
      *
      * @return в случае удачного получения код 200 и комментария
      */
-    @GET("comments/1")
-    Call<CommentModel> getComment();
+    @GET("comments")
+    Call<ArrayList<CommentModel>> getComment();
 
     /**
      * Получение фото

@@ -96,7 +96,7 @@ public class PostsFragment extends Fragment {
                 final int id = Integer.parseInt(editTextId.getText().toString()) - 1;
 
                 // Проверка введенного значения
-                if ((id > -1) && (id < arrayListPost.size() - 1)) {
+                if ((id > -1) && (id < arrayListPost.size())) {
                     // Заполнение текстовых полей выбранным постом
                     textViewTitle.setText(arrayListPost.get(id).getTitle());
                     textViewBody.setText(arrayListPost.get(id).getBody());
@@ -105,7 +105,7 @@ public class PostsFragment extends Fragment {
                 } else {
                     // Изменение видимости текстового поля
                     textViewInfo.setVisibility(View.VISIBLE);
-                    textViewInfo.setText(R.string.info_post);
+                    textViewInfo.setText(getString(R.string.info_post) + " " + arrayListPost.size());
                 }
             }
         });
