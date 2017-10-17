@@ -32,13 +32,18 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 
-    // Библиотеки для дизайна UI
+    // Базовая библиотека дизайна
     compile 'com.android.support:design:25.3.1'
+
+    // Библиотека ConstraintLayout
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // Библиотека CardView
+    compile 'com.android.support:cardview-v7:25.3.1'
 
     // Библиотека для работы с JSON
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
-    // Библиотека Retrofit2 - RESTful API (необходима библиотека работы с GSON)
+    // Библиотека Retrofit2 - RESTful API (для корректной работы необходима библиотека работы с GSON)
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
 }
