@@ -22,4 +22,12 @@
     <string name="api_request_incorrect_input_params">Некорректные параметры для выполнения запроса к API</string>
     <string name="api_request_not_success">Запрос не был выполнен</string>
     <string name="api_request_header_authorization" formatted="false">Token %s</string>
+
+    <!--Строки для карточек-->
+    <string name="title">Заголовок:</string>
+    <string name="post">Пост:</string>
+    <string name="comment">Комментарий:</string>
+    <string name="input_id">введите id</string>
+    <string name="display">показать</string>
+    <string name="info_post">id должно лежать в диапазоне от 0 до 100</string>
 </resources>

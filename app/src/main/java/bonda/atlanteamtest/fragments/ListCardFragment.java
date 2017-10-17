@@ -57,33 +57,6 @@ public class ListCardFragment extends Fragment {
         // Инициализация работы с сервером
         Retrofit retrofit = new Retrofit.Builder().baseUrl(InterfaceAPI.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
-        // Формирование тела запроса с параметрами для получения поста
-        Call<PostModel> callPost = retrofit.create(InterfaceAPI.class).getPost();
-
-        // Выполннение асинхронного запроса к API для получения поста
-        callPost.enqueue(new Callback<PostModel>() {
-            @Override
-            public void onResponse(Call<PostModel> userCall, Response<PostModel> response) {
-                // Проверка успешности запроса
-                if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
-
-                    // Заполнение сущности из тела запроса
-                    PostModel postModel = response.body();
-
-                } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PostModel> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
-            }
-        });
-
 
         // Формирование тела запроса с параметрами для получения комментария
         Call<CommentModel> callComment = retrofit.create(InterfaceAPI.class).getComment();

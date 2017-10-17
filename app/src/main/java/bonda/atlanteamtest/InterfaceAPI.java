@@ -1,5 +1,7 @@
 package bonda.atlanteamtest;
 
+import java.util.ArrayList;
+
 import bonda.atlanteamtest.models.AlbumModel;
 import bonda.atlanteamtest.models.CommentModel;
 import bonda.atlanteamtest.models.PhotoModel;
@@ -27,14 +29,16 @@ public interface InterfaceAPI {
     /**
      * Получение поста
      * TODO: Вставлять вместо 1 - n
+     *
      * @return в случае удачного получения код 200 и пост
      */
-    @GET("posts/1")
-    Call<PostModel> getPost();
+    @GET("posts")
+    Call<ArrayList<PostModel>> getPost();
 
     /**
      * Получение комментария
      * TODO: Вставлять вместо 1 - n
+     *
      * @return в случае удачного получения код 200 и комментария
      */
     @GET("comments/1")
@@ -43,6 +47,7 @@ public interface InterfaceAPI {
     /**
      * Получение фото
      * TODO: Вставлять вместо 1 - n
+     *
      * @return в случае удачного получения код 200 и фото
      */
     @GET("photos/1")
@@ -51,6 +56,7 @@ public interface InterfaceAPI {
     /**
      * Получение задачи
      * TODO: Вставлять вместо 1 - n
+     *
      * @return в случае удачного получения код 200 и задачи
      */
     @GET("todos/1")
@@ -59,6 +65,7 @@ public interface InterfaceAPI {
     /**
      * Получение пользователя
      * TODO: Вставлять вместо 1 - n
+     *
      * @return в случае удачного получения код 200 и пользователя
      */
     @GET("users/1")
@@ -67,6 +74,7 @@ public interface InterfaceAPI {
     /**
      * Получение альбома
      * TODO: Вставлять вместо 1 - n
+     *
      * @return в случае удачного получения код 200 и альбом
      */
     @GET("albums/1")

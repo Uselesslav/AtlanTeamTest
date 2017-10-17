@@ -33,11 +33,11 @@ public class ContactsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_contacts, container, false);
 
         // Текстовые поля с номером телефона и адресом электронной почты
-        TextView buttonCall = rootView.findViewById(R.id.tv_contacts_call);
-        TextView buttonMail = rootView.findViewById(R.id.tv_contacts_mail);
+        TextView textViewCall = rootView.findViewById(R.id.tv_contacts_call);
+        TextView textViewMail = rootView.findViewById(R.id.tv_contacts_mail);
 
         // Обработчик нажатия на поле номера телефона
-        buttonCall.setOnClickListener(new Button.OnClickListener() {
+        textViewCall.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(getString(R.string.contact_uri_string) + getString(R.string.contact_number_phone).trim()));
@@ -48,7 +48,7 @@ public class ContactsFragment extends Fragment {
         });
 
         // Обработчик нажатия на поле адреса электройнной почты
-        buttonMail.setOnClickListener(new Button.OnClickListener() {
+        textViewMail.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(getString(R.string.contact_scheme), getString(R.string.contact_mail), null));
