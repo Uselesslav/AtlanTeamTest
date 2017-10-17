@@ -32,4 +32,7 @@
     <string name="info_post">id должно лежать в диапазоне от 0 до </string>
     <string name="commentator">Комментарий пользователя</string>
     <string name="mail_commentator">Почта комментатора</string>
+    <string name="state">Статус</string>
+    <string name="completed">ВЫПОЛНЕНО</string>
+    <string name="uncompleted">НЕ ВЫПОЛНЕНО</string>
 </resources>

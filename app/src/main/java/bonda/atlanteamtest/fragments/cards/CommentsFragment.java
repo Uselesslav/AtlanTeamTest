@@ -53,10 +53,10 @@ public class CommentsFragment extends Fragment {
         final ArrayList<CommentModel> arrayListComment = new ArrayList<>();
 
         // Формирование тела запроса с параметрами для получения массива комментариев
-        Call<ArrayList<CommentModel>> callPost = retrofit.create(InterfaceAPI.class).getComment();
+        Call<ArrayList<CommentModel>> callComment = retrofit.create(InterfaceAPI.class).getComment();
 
-        // Выполннение асинхронного запроса к API для получения поста
-        callPost.enqueue(new Callback<ArrayList<CommentModel>>() {
+        // Выполннение асинхронного запроса к API для получения массива комментариев
+        callComment.enqueue(new Callback<ArrayList<CommentModel>>() {
             @Override
             public void onResponse(Call<ArrayList<CommentModel>> userCall, Response<ArrayList<CommentModel>> response) {
                 // Проверка успешности запроса
@@ -90,7 +90,7 @@ public class CommentsFragment extends Fragment {
         // Информационное текстовое поле
         final TextView textViewInfo = rootView.findViewById(R.id.tv_info);
 
-        // Обработчик нажатия на кнопку "показать"
+        // Обработчик нажатия на кнопку "ПОДТВЕРДИТЬ"
         buttonApply.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,12 +99,12 @@ public class CommentsFragment extends Fragment {
 
                 // Проверка введенного значения
                 if ((id > -1) && (id < arrayListComment.size())) {
-                    // Заполнение текстовых полей выбранным постом
+                    // Заполнение текстовых полей
                     textViewCommentator.setText(arrayListComment.get(id).getName());
                     textViewMailCommentator.setText(arrayListComment.get(id).getEmail());
                     textViewComment.setText(arrayListComment.get(id).getBody());
                     // Изменение видимости текстового поля, если оно отображалось
-                    textViewInfo.setVisibility(View.INVISIBLE);
+                    textViewInfo.setVisibility(View.GONE);
                 } else {
                     // Изменение видимости текстового поля
                     textViewInfo.setVisibility(View.VISIBLE);
@@ -112,6 +112,7 @@ public class CommentsFragment extends Fragment {
                 }
             }
         });
+
         return rootView;
     }
 }

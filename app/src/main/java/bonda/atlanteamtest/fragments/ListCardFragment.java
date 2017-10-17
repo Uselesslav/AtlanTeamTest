@@ -14,9 +14,7 @@ import bonda.atlanteamtest.fragments.cards.PhotosFragment;
 import bonda.atlanteamtest.fragments.cards.PostsFragment;
 import bonda.atlanteamtest.fragments.cards.ToDosFragment;
 import bonda.atlanteamtest.fragments.cards.UsersFragment;
-import bonda.atlanteamtest.models.AlbumModel;
 import bonda.atlanteamtest.models.PhotoModel;
-import bonda.atlanteamtest.models.ToDoModel;
 import bonda.atlanteamtest.models.UserModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -84,34 +82,6 @@ public class ListCardFragment extends Fragment {
 
 
         // Формирование тела запроса с параметрами для получения фото
-        Call<ToDoModel> callToDo = retrofit.create(InterfaceAPI.class).getToDo();
-
-        // Выполннение асинхронного запроса к API для получения поста
-        callToDo.enqueue(new Callback<ToDoModel>() {
-            @Override
-            public void onResponse(Call<ToDoModel> userCall, Response<ToDoModel> response) {
-                // Проверка успешности запроса
-                if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
-
-                    // Заполнение сущности из тела запроса
-                    ToDoModel callToDo = response.body();
-
-                } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ToDoModel> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
-            }
-        });
-
-
-        // Формирование тела запроса с параметрами для получения фото
         Call<UserModel> callUser = retrofit.create(InterfaceAPI.class).getUser();
 
         // Выполннение асинхронного запроса к API для получения поста
@@ -138,33 +108,6 @@ public class ListCardFragment extends Fragment {
             }
         });
 
-
-        // Формирование тела запроса с параметрами для получения фото
-        Call<AlbumModel> callAlbum = retrofit.create(InterfaceAPI.class).getAlbum();
-
-        // Выполннение асинхронного запроса к API для получения поста
-        callAlbum.enqueue(new Callback<AlbumModel>() {
-            @Override
-            public void onResponse(Call<AlbumModel> userCall, Response<AlbumModel> response) {
-                // Проверка успешности запроса
-                if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
-
-                    // Заполнение сущности из тела запроса
-                    AlbumModel callAlbum = response.body();
-
-                } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<AlbumModel> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
-            }
-        });
         return rootView;
     }
 }

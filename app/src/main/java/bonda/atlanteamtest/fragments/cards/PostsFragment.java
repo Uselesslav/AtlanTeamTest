@@ -88,7 +88,7 @@ public class PostsFragment extends Fragment {
         // Информационное текстовое поле
         final TextView textViewInfo = rootView.findViewById(R.id.tv_info);
 
-        // Обработчик нажатия на кнопку "показать"
+        // Обработчик нажатия на кнопку "ПОДТВЕРДИТЬ"
         buttonApply.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +101,7 @@ public class PostsFragment extends Fragment {
                     textViewTitle.setText(arrayListPost.get(id).getTitle());
                     textViewBody.setText(arrayListPost.get(id).getBody());
                     // Изменение видимости текстового поля, если оно отображалось
-                    textViewInfo.setVisibility(View.INVISIBLE);
+                    textViewInfo.setVisibility(View.GONE);
                 } else {
                     // Изменение видимости текстового поля
                     textViewInfo.setVisibility(View.VISIBLE);

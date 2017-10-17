@@ -57,8 +57,8 @@ public interface InterfaceAPI {
      *
      * @return в случае удачного получения код 200 и задачи
      */
-    @GET("todos/1")
-    Call<ToDoModel> getToDo();
+    @GET("todos")
+    Call<ArrayList<ToDoModel>> getToDo();
 
     /**
      * Получение пользователя
@@ -71,10 +71,9 @@ public interface InterfaceAPI {
 
     /**
      * Получение альбома
-     * TODO: Вставлять вместо 1 - n
      *
      * @return в случае удачного получения код 200 и альбом
      */
-    @GET("albums/1")
-    Call<AlbumModel> getAlbum();
+    @GET("albums")
+    Call<ArrayList<AlbumModel>> getAlbum();
 }
