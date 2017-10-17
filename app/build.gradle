@@ -46,4 +46,9 @@ dependencies {
 
     // Библиотека Retrofit2 - RESTful API (для корректной работы необходима библиотека работы с GSON)
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
+
+    // Загрузка картинок Glide
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+    compile 'com.android.support:support-v4:25.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
 }
