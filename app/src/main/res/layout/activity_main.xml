@@ -14,7 +14,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/pink"
         android:layout_gravity="bottom"
-        android:layout_weight="9" />
+        android:layout_weight="9"
+        android:background="@color/wheat" />
 </LinearLayout>

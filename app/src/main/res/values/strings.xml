@@ -29,7 +29,8 @@
     <string name="comment">Комментарий:</string>
     <string name="input_id">введите id</string>
     <string name="apply">подтвердить</string>
-    <string name="info_post">id должно лежать в диапазоне от 0 до </string>
+    <string name="info_text">id должно лежать в диапазоне от 0 до </string>
+    <string name="info_empty_string">Введите идентификатор</string>
     <string name="commentator">Комментарий пользователя</string>
     <string name="mail_commentator">Почта комментатора</string>
     <string name="state">Статус</string>

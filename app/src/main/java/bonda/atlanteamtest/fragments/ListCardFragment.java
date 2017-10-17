@@ -14,7 +14,6 @@ import bonda.atlanteamtest.fragments.cards.PhotosFragment;
 import bonda.atlanteamtest.fragments.cards.PostsFragment;
 import bonda.atlanteamtest.fragments.cards.ToDosFragment;
 import bonda.atlanteamtest.fragments.cards.UsersFragment;
-import bonda.atlanteamtest.models.PhotoModel;
 import bonda.atlanteamtest.models.UserModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,33 +51,6 @@ public class ListCardFragment extends Fragment {
 
         // Инициализация работы с сервером
         Retrofit retrofit = new Retrofit.Builder().baseUrl(InterfaceAPI.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-
-        // Формирование тела запроса с параметрами для получения фото
-        Call<PhotoModel> callPhoto = retrofit.create(InterfaceAPI.class).getPhoto();
-
-        // Выполннение асинхронного запроса к API для получения поста
-        callPhoto.enqueue(new Callback<PhotoModel>() {
-            @Override
-            public void onResponse(Call<PhotoModel> userCall, Response<PhotoModel> response) {
-                // Проверка успешности запроса
-                if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
-
-                    // Заполнение сущности из тела запроса
-                    PhotoModel callPhoto = response.body();
-
-                } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PhotoModel> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
-            }
-        });
 
 
         // Формирование тела запроса с параметрами для получения фото

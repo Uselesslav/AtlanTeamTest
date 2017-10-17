@@ -44,16 +44,14 @@ public interface InterfaceAPI {
 
     /**
      * Получение фото
-     * TODO: Вставлять вместо 1 - n
      *
      * @return в случае удачного получения код 200 и фото
      */
-    @GET("photos/1")
-    Call<PhotoModel> getPhoto();
+    @GET("photos")
+    Call<ArrayList<PhotoModel>> getPhoto();
 
     /**
      * Получение задачи
-     * TODO: Вставлять вместо 1 - n
      *
      * @return в случае удачного получения код 200 и задачи
      */

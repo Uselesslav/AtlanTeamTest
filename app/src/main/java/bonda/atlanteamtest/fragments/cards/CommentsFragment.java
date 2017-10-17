@@ -94,6 +94,13 @@ public class CommentsFragment extends Fragment {
         buttonApply.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Проверка пусто ли поле ввода
+                if (editTextId.getText().toString().isEmpty()) {
+                    // Изменение видимости текстового поля
+                    textViewInfo.setVisibility(View.VISIBLE);
+                    textViewInfo.setText(getString(R.string.info_empty_string));
+                    return;
+                }
                 // Получение id из поля ввода
                 final int id = Integer.parseInt(editTextId.getText().toString()) - 1;
 
@@ -108,7 +115,7 @@ public class CommentsFragment extends Fragment {
                 } else {
                     // Изменение видимости текстового поля
                     textViewInfo.setVisibility(View.VISIBLE);
-                    textViewInfo.setText(getString(R.string.info_post) + " " + arrayListComment.size());
+                    textViewInfo.setText(getString(R.string.info_text) + " " + arrayListComment.size());
                 }
             }
         });
