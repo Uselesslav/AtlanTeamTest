@@ -2,24 +2,16 @@ package bonda.atlanteamtest.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import bonda.atlanteamtest.InterfaceAPI;
 import bonda.atlanteamtest.R;
 import bonda.atlanteamtest.fragments.cards.CommentsFragment;
 import bonda.atlanteamtest.fragments.cards.PhotosFragment;
 import bonda.atlanteamtest.fragments.cards.PostsFragment;
 import bonda.atlanteamtest.fragments.cards.ToDosFragment;
 import bonda.atlanteamtest.fragments.cards.UsersFragment;
-import bonda.atlanteamtest.models.UserModel;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Фрагмент списка карточек
@@ -47,38 +39,6 @@ public class ListCardFragment extends Fragment {
         getChildFragmentManager().beginTransaction().add(R.id.fl_users, UsersFragment.newInstance()).commit();
         getChildFragmentManager().beginTransaction().add(R.id.fl_posts, PostsFragment.newInstance()).commit();
         getChildFragmentManager().beginTransaction().add(R.id.fl_todos, ToDosFragment.newInstance()).commit();
-
-
-        // Инициализация работы с сервером
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(InterfaceAPI.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-
-
-        // Формирование тела запроса с параметрами для получения фото
-        Call<UserModel> callUser = retrofit.create(InterfaceAPI.class).getUser();
-
-        // Выполннение асинхронного запроса к API для получения поста
-        callUser.enqueue(new Callback<UserModel>() {
-            @Override
-            public void onResponse(Call<UserModel> userCall, Response<UserModel> response) {
-                // Проверка успешности запроса
-                if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
-
-                    // Заполнение сущности из тела запроса
-                    UserModel callUser = response.body();
-
-                } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UserModel> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
-            }
-        });
 
         return rootView;
     }

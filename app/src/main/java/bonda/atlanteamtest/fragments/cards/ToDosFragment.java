@@ -132,6 +132,7 @@ public class ToDosFragment extends Fragment {
                 }
             }
         });
+
         return rootView;
     }
 }

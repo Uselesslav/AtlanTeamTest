@@ -11,7 +11,7 @@
     <string name="contact_mail">wdbondarenko@gmail.com</string>
     <string name="contact_name_author">Бондаренко Вячеслав Дмитриевич</string>
     <string name="contact_theme_message">Приглашение на собеседованией</string>
-    <string name="contact_text_message">Доброго времени суток, Вячеслав</string>
+    <string name="contact_text_message">Здравствуйте, Вячеслав</string>
     <string name="contact_text_input_message">Введите сообщение…</string>
     <string name="contact_scheme">mailto</string>
     <string name="contact_uri_string">tel:</string>
@@ -36,4 +36,14 @@
     <string name="state">Статус</string>
     <string name="completed">ВЫПОЛНЕНО</string>
     <string name="uncompleted">НЕ ВЫПОЛНЕНО</string>
+
+    <!--Строки для элемента списка пользователей-->
+    <string name="name">Имя:</string>
+    <string name="login">Логин:</string>
+    <string name="email">email:</string>
+    <string name="street">Улица:</string>
+    <string name="suite">Дом:</string>
+    <string name="city">Город:</string>
+    <string name="address">Адрес:</string>
+
 </resources>

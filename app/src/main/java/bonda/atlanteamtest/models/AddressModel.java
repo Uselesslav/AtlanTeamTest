@@ -14,7 +14,7 @@ public class AddressModel {
     private String street;
 
     /**
-     * Апартаменты
+     * Дом
      */
     @SerializedName("suite")
     private String suite;

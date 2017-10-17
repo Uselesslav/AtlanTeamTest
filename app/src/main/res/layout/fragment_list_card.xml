@@ -13,12 +13,12 @@
         <FrameLayout
             android:id="@+id/fl_posts"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <FrameLayout
             android:id="@+id/fl_"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <FrameLayout
             android:id="@+id/fl_comments"
@@ -28,16 +28,16 @@
         <FrameLayout
             android:id="@+id/fl_photos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <FrameLayout
             android:id="@+id/fl_todos"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <FrameLayout
             android:id="@+id/fl_users"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

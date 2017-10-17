@@ -60,12 +60,11 @@ public interface InterfaceAPI {
 
     /**
      * Получение пользователя
-     * TODO: Вставлять вместо 1 - n
      *
      * @return в случае удачного получения код 200 и пользователя
      */
-    @GET("users/1")
-    Call<UserModel> getUser();
+    @GET("users")
+    Call<ArrayList<UserModel>> getUser();
 
     /**
      * Получение альбома

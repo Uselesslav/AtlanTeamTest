@@ -24,7 +24,7 @@ public class UserModel {
      * Логин
      */
     @SerializedName("username")
-    private String username;
+    private String userName;
 
     /**
      * email
@@ -38,10 +38,10 @@ public class UserModel {
     @SerializedName("address")
     private AddressModel address;
 
-    public UserModel(int id, String name, String username, String email, AddressModel address) {
+    public UserModel(int id, String name, String userName, String email, AddressModel address) {
         this.id = id;
         this.name = name;
-        this.username = username;
+        this.userName = userName;
         this.email = email;
         this.address = address;
     }
@@ -62,12 +62,12 @@ public class UserModel {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
