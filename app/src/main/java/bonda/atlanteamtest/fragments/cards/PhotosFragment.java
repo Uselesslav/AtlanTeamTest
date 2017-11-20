@@ -3,9 +3,7 @@ package bonda.atlanteamtest.fragments.cards;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +17,10 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import bonda.atlanteamtest.API.InterfaceAPI;
+import bonda.atlanteamtest.MainActivity;
 import bonda.atlanteamtest.R;
 import bonda.atlanteamtest.models.PhotoModel;
+import bonda.atlanteamtest.utils.Logger;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,6 +41,11 @@ public class PhotosFragment extends Fragment {
 
         return new PhotosFragment();
     }
+
+    /**
+     * Объект для логирования
+     */
+    private Logger mLogger = new Logger();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,23 +70,25 @@ public class PhotosFragment extends Fragment {
             public void onResponse(Call<ArrayList<PhotoModel>> userCall, Response<ArrayList<PhotoModel>> response) {
                 // Проверка успешности запроса
                 if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
+                    // Отправка сообщений в логи
+                    mLogger.logRequestServer(true, null, response.body().toString());
 
                     // Заполнение массива полученными данными
                     arrayListPhoto.addAll(response.body());
 
                     // Загрузка картинки майки и отображение
-                    Glide.with(getContext()).load(arrayListPhoto.get(3).getUrl()).into(imageViewPhoto);
+                    Glide.with(MainActivity.getContext()).load(arrayListPhoto.get(3).getUrl()).into(imageViewPhoto);
                 } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
+                    // Отправка сообщений в логи
+                    mLogger.logRequestServer(true, null, null);
+
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<PhotoModel>> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
+                // Отправка сообщений в логи
+                mLogger.logRequestServer(false, t, null);
             }
         });
 
@@ -110,7 +117,7 @@ public class PhotosFragment extends Fragment {
                 // Проверка введенного значения
                 if ((id > -1) && (id < arrayListPhoto.size())) {
                     // Загрузка картинки майки и отображение
-                    Glide.with(getContext()).load(arrayListPhoto.get(id).getUrl()).into(imageViewPhoto);
+                    Glide.with(MainActivity.getContext()).load(arrayListPhoto.get(id).getUrl()).into(imageViewPhoto);
 
                     // Изменение видимости текстового поля, если оно отображалось
                     textViewInfo.setVisibility(View.GONE);

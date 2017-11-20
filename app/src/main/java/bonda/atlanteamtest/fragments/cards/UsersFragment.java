@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,7 @@ import bonda.atlanteamtest.API.InterfaceAPI;
 import bonda.atlanteamtest.R;
 import bonda.atlanteamtest.adapters.ArrayListUserAdapter;
 import bonda.atlanteamtest.models.UserModel;
+import bonda.atlanteamtest.utils.Logger;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,6 +39,11 @@ public class UsersFragment extends Fragment {
 
         return new UsersFragment();
     }
+
+    /**
+     * Объект для логирования
+     */
+    private Logger mLogger = new Logger();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -73,8 +78,8 @@ public class UsersFragment extends Fragment {
             public void onResponse(Call<ArrayList<UserModel>> userCall, Response<ArrayList<UserModel>> response) {
                 // Проверка успешности запроса
                 if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
+                    // Отправка сообщений в логи
+                    mLogger.logRequestServer(true, null,response.body().toString());
 
                     // Заполнение массива полученными данными
                     arrayListUsers.addAll(response.body());
@@ -100,14 +105,14 @@ public class UsersFragment extends Fragment {
                     // Обновление списка
                     arrayListUserAdapter.notifyDataSetChanged();
                 } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                }
+                    // Отправка сообщений в логи
+                    mLogger.logRequestServer(true, null, null);                }
             }
 
             @Override
             public void onFailure(Call<ArrayList<UserModel>> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
+                // Отправка сообщений в логи
+                mLogger.logRequestServer(false, t, null);
             }
         });
 

@@ -19,6 +19,7 @@
     <!--API-->
     <string name="api_request_executing">Выполняется запрос к API</string>
     <string name="api_request_success">Запрос был успешно выполнен</string>
+    <string name="api_request_empty_string_response_body">Пустое тело ответа</string>
     <string name="api_request_incorrect_input_params">Некорректные параметры для выполнения запроса к API</string>
     <string name="api_request_not_success">Запрос не был выполнен</string>
     <string name="api_request_header_authorization" formatted="false">Token %s</string>

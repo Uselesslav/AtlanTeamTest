@@ -22,11 +22,6 @@ public interface InterfaceAPI {
     String BASE_URL = "https://jsonplaceholder.typicode.com/";
 
     /**
-     * Лог ответа
-     */
-    String REQUEST_LOG = "api_logs";
-
-    /**
      * Получение поста
      *
      * @return в случае удачного получения код 200 и пост

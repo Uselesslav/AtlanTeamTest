@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import bonda.atlanteamtest.API.InterfaceAPI;
 import bonda.atlanteamtest.R;
 import bonda.atlanteamtest.models.CommentModel;
+import bonda.atlanteamtest.utils.Logger;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,6 +37,11 @@ public class CommentsFragment extends Fragment {
 
         return new CommentsFragment();
     }
+
+    /**
+     * Объект для логирования
+     */
+    private Logger mLogger = new Logger();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,8 +68,8 @@ public class CommentsFragment extends Fragment {
             public void onResponse(Call<ArrayList<CommentModel>> userCall, Response<ArrayList<CommentModel>> response) {
                 // Проверка успешности запроса
                 if (response != null && response.body() != null) {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_success));
-                    Log.i(InterfaceAPI.REQUEST_LOG, response.body().toString());
+                    // Отправка сообщений в логи
+                    mLogger.logRequestServer(true, null, response.body().toString());
 
                     // Заполнение массива полученными данными
                     arrayListComment.addAll(response.body());
@@ -73,15 +78,16 @@ public class CommentsFragment extends Fragment {
                     textViewCommentator.setText(arrayListComment.get(0).getName());
                     textViewMailCommentator.setText(arrayListComment.get(0).getEmail());
                     textViewComment.setText(arrayListComment.get(0).getBody());
-                } else {
-                    Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
+                }else {
+                    // Отправка сообщений в логи
+                    mLogger.logRequestServer(true, null, null);
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<CommentModel>> call, Throwable t) {
-                Log.i(InterfaceAPI.REQUEST_LOG, getString(R.string.api_request_not_success));
-                Log.i(InterfaceAPI.REQUEST_LOG, t.toString());
+
+                mLogger.logRequestServer(false, t,null);
             }
         });
 
@@ -93,7 +99,9 @@ public class CommentsFragment extends Fragment {
         final TextView textViewInfo = rootView.findViewById(R.id.tv_info);
 
         // Обработчик нажатия на кнопку "ПОДТВЕРДИТЬ"
-        buttonApply.setOnClickListener(new Button.OnClickListener() {
+        buttonApply.setOnClickListener(new Button.OnClickListener()
+
+        {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
