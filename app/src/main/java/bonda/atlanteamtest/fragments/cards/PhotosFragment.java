@@ -1,6 +1,9 @@
 package bonda.atlanteamtest.fragments.cards;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +18,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-import bonda.atlanteamtest.InterfaceAPI;
+import bonda.atlanteamtest.API.InterfaceAPI;
 import bonda.atlanteamtest.R;
 import bonda.atlanteamtest.models.PhotoModel;
 import retrofit2.Call;
@@ -40,7 +43,7 @@ public class PhotosFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Создаваемый UI
         View rootView = inflater.inflate(R.layout.fragment_photos, container, false);
 
@@ -91,6 +94,7 @@ public class PhotosFragment extends Fragment {
 
         // Обработчик нажатия на кнопку "ПОДТВЕРДИТЬ"
         buttonApply.setOnClickListener(new Button.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 // Проверка пусто ли поле ввода
