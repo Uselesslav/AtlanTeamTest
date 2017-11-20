@@ -78,7 +78,7 @@ public class CommentsFragment extends Fragment {
                     textViewCommentator.setText(arrayListComment.get(0).getName());
                     textViewMailCommentator.setText(arrayListComment.get(0).getEmail());
                     textViewComment.setText(arrayListComment.get(0).getBody());
-                }else {
+                } else {
                     // Отправка сообщений в логи
                     mLogger.logRequestServer(true, null, null);
                 }
@@ -87,7 +87,7 @@ public class CommentsFragment extends Fragment {
             @Override
             public void onFailure(Call<ArrayList<CommentModel>> call, Throwable t) {
 
-                mLogger.logRequestServer(false, t,null);
+                mLogger.logRequestServer(false, t, null);
             }
         });
 

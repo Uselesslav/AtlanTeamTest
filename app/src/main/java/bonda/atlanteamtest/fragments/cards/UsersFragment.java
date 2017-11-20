@@ -79,7 +79,7 @@ public class UsersFragment extends Fragment {
                 // Проверка успешности запроса
                 if (response != null && response.body() != null) {
                     // Отправка сообщений в логи
-                    mLogger.logRequestServer(true, null,response.body().toString());
+                    mLogger.logRequestServer(true, null, response.body().toString());
 
                     // Заполнение массива полученными данными
                     arrayListUsers.addAll(response.body());
@@ -106,7 +106,8 @@ public class UsersFragment extends Fragment {
                     arrayListUserAdapter.notifyDataSetChanged();
                 } else {
                     // Отправка сообщений в логи
-                    mLogger.logRequestServer(true, null, null);                }
+                    mLogger.logRequestServer(true, null, null);
+                }
             }
 
             @Override
