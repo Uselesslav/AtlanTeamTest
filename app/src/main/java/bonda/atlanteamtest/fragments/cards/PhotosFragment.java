@@ -36,16 +36,6 @@ public class PhotosFragment extends Fragment {
      */
     private Logger mLogger = new Logger();
 
-    /**
-     * Передаёт параметры в фрагмент из предка
-     *
-     * @return фрагмент
-     */
-    public static PhotosFragment newInstance() {
-
-        return new PhotosFragment();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Создаваемый UI

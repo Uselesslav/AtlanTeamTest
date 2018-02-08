@@ -29,16 +29,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class CommentsFragment extends Fragment {
     /**
-     * Передаёт параметры в фрагмент из предка
-     *
-     * @return фрагмент
-     */
-    public static CommentsFragment newInstance() {
-
-        return new CommentsFragment();
-    }
-
-    /**
      * Объект для логирования
      */
     private Logger mLogger = new Logger();

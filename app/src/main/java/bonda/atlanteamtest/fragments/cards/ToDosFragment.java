@@ -30,16 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ToDosFragment extends Fragment {
     /**
-     * Передаёт параметры в фрагмент из предка
-     *
-     * @return фрагмент
-     */
-    public static ToDosFragment newInstance() {
-
-        return new ToDosFragment();
-    }
-
-    /**
      * Объект для логирования
      */
     private Logger mLogger = new Logger();

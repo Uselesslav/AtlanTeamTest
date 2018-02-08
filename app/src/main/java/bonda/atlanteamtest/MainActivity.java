@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         TabsViewPagerAdapter adapter = new TabsViewPagerAdapter(this.getSupportFragmentManager());
 
         // Добавление вкладок
-        adapter.addFragment(ListCardFragment.newInstance(), getString(R.string.name_tab_list_card));
-        adapter.addFragment(ContactsFragment.newInstance(), getString(R.string.name_tab_contacts));
+        adapter.addFragment(new ListCardFragment(), getString(R.string.name_tab_list_card));
+        adapter.addFragment(new ContactsFragment(), getString(R.string.name_tab_contacts));
 
         // Инициализация работы с вкладками
         viewPager.setAdapter(adapter);

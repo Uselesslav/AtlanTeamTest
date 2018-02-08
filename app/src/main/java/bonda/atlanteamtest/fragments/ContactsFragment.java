@@ -17,16 +17,6 @@ import bonda.atlanteamtest.R;
  * Created by bonda on 13.10.2017.
  */
 public class ContactsFragment extends Fragment {
-    /**
-     * Передаёт параметры в фрагмент из предка
-     *
-     * @return фрагмент
-     */
-    public static ContactsFragment newInstance() {
-
-        return new ContactsFragment();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Создаваемый UI
