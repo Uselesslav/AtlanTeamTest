@@ -17,7 +17,6 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import bonda.atlanteamtest.API.InterfaceAPI;
-import bonda.atlanteamtest.MainActivity;
 import bonda.atlanteamtest.R;
 import bonda.atlanteamtest.models.PhotoModel;
 import bonda.atlanteamtest.utils.Logger;
@@ -33,6 +32,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class PhotosFragment extends Fragment {
     /**
+     * Объект для логирования
+     */
+    private Logger mLogger = new Logger();
+
+    /**
      * Передаёт параметры в фрагмент из предка
      *
      * @return фрагмент
@@ -41,11 +45,6 @@ public class PhotosFragment extends Fragment {
 
         return new PhotosFragment();
     }
-
-    /**
-     * Объект для логирования
-     */
-    private Logger mLogger = new Logger();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -77,7 +76,7 @@ public class PhotosFragment extends Fragment {
                     arrayListPhoto.addAll(response.body());
 
                     // Загрузка картинки майки и отображение
-                    Glide.with(MainActivity.getContext()).load(arrayListPhoto.get(3).getUrl()).into(imageViewPhoto);
+                    Glide.with(getContext()).load(arrayListPhoto.get(3).getUrl()).into(imageViewPhoto);
                 } else {
                     // Отправка сообщений в логи
                     mLogger.logRequestServer(true, null, null);
@@ -117,7 +116,7 @@ public class PhotosFragment extends Fragment {
                 // Проверка введенного значения
                 if ((id > -1) && (id < arrayListPhoto.size())) {
                     // Загрузка картинки майки и отображение
-                    Glide.with(MainActivity.getContext()).load(arrayListPhoto.get(id).getUrl()).into(imageViewPhoto);
+                    Glide.with(getContext()).load(arrayListPhoto.get(id).getUrl()).into(imageViewPhoto);
 
                     // Изменение видимости текстового поля, если оно отображалось
                     textViewInfo.setVisibility(View.GONE);

@@ -1,7 +1,5 @@
 package bonda.atlanteamtest;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -15,19 +13,10 @@ import bonda.atlanteamtest.fragments.ListCardFragment;
  * Главная активность приложения
  */
 public class MainActivity extends AppCompatActivity {
-    /**
-     * Контекст приложения
-     */
-    @SuppressLint("StaticFieldLeak")
-    static private Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Сохранение контекста приложения
-        context = getApplicationContext();
 
         // Меню вкладок
         TabLayout tabLayout = findViewById(R.id.tab_layout);
@@ -53,12 +42,5 @@ public class MainActivity extends AppCompatActivity {
 
         // Инициализация работы с вкладками
         viewPager.setAdapter(adapter);
-    }
-
-    /**
-     * @return - base context app
-     */
-    public static Context getContext() {
-        return context;
     }
 }

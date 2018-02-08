@@ -1,11 +1,7 @@
 package bonda.atlanteamtest.utils;
 
-import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.Log;
-
-import bonda.atlanteamtest.MainActivity;
-import bonda.atlanteamtest.R;
 
 /**
  * Класс для создания логов
@@ -14,18 +10,18 @@ public class Logger {
     /**
      * Лог ответа сервера
      */
-    private final String REQUEST_LOG = "api_logs";
-
+    public final boolean FAILURE = false;
+    public final boolean RESPONSE = true;
     /**
      * Лог ответа сервера
      */
-    public final boolean FAILURE = false;
-    public final boolean RESPONSE = true;
+    private final String REQUEST_LOG = "api_logs";
 
     /**
      * Контекст
+     * TODO: Избавиться от колхоза
      */
-    private final Context mContext = MainActivity.getContext();
+//    private final Context mContext = MainActivity.getContext();
 
     /**
      * Метод, создающий стандартный лог
@@ -48,13 +44,13 @@ public class Logger {
 
         if (!result) {
             // Отправка сообщения в логи
-            Log.i(REQUEST_LOG, mContext.getString(R.string.api_request_not_success));
+//            Log.i(REQUEST_LOG, mContext.getString(R.string.api_request_not_success));
             assert throwable != null;
             Log.i(REQUEST_LOG, throwable.toString());
         } else {
-            Log.i(REQUEST_LOG, mContext.getString(R.string.api_request_success));
+//            Log.i(REQUEST_LOG, mContext.getString(R.string.api_request_success));
             if (stringBody == null) {
-                stringBody = mContext.getString(R.string.api_request_empty_string_response_body);
+//                stringBody = mContext.getString(R.string.api_request_empty_string_response_body);
             }
             Log.i(REQUEST_LOG, stringBody);
         }
